@@ -258,6 +258,10 @@ class AutoLogin:
             self.log(f"未检测到特定区域，使用当前域名: {host}", "INFO")
             # 如果没有检测到区域，使用当前 URL 的基础部分
             self.region_base_url = f"{parsed.scheme}://{parsed.netloc}"
+            #liquntao modify 2026/1/22
+            region='eu-central-1'
+            self.detected_region = region
+            self.region_base_url = f"https://{region}.run.claw.cloud"
             return None
             
         except Exception as e:
